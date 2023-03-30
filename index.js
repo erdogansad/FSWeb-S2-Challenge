@@ -74,17 +74,16 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 }
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
-
-
+console.log(cumleKur("Hello World!"));
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log(cumleKur("Hello ", "World!"))
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
+var bircumle = cumleKur("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım!");
 
 /* kodlar buraya */
 
@@ -104,8 +103,9 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
+function cumlelereDonustur(arr, sprt=","){
+	let newArr = arr.map(el => el.join(sprt));
+	return newArr;
 }
 
 
@@ -120,8 +120,9 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
+function paragrafOlustur(arr, cumleKur, cumlelereDonustur){
+	let newArr = cumlelereDonustur(arr, " ");
+	return cumleKur(newArr[1], newArr[3], newArr[5], newArr[7], newArr[9]);
 }
 
 
@@ -131,7 +132,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
  */
 //3a çözümü
 /* kodlar buraya */
-
+meyveler.pop();
+meyveler.shift();
 
 
 
@@ -141,7 +143,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 */
 //3b çözümü
 /* kodlar buraya */
-
+sebzeler.unshift("🐇");
+sebzeler.push("🦔");
 
 
 
@@ -154,8 +157,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 	//3c çözümü
 /* kodlar buraya */
 
-var manav;
-
+var manav = [];
+manav = manav.concat(meyveler,sebzeler);
 
 
 
@@ -170,9 +173,10 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
-
+function emojileriDonustur(str, emotes){
+	let newStr = str;
+	for(let key in emotes) newStr = newStr.replaceAll(key.toLowerCase(), emotes[key]).replaceAll(key.toUpperCase(), emotes[key]);
+	return newStr;
 }
 
 
